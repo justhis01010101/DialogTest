@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dialog.setTitle("내가 낳은 별");
         dialog.setIcon(R.drawable.star);
-        //dialog.setMessage("메시지");
+        /*//dialog.setMessage("메시지");
 
         dialog.setItems(itemArr, new DialogInterface.OnClickListener() {
             @Override
@@ -38,13 +38,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "저즈디즈 짱짱", Toast.LENGTH_SHORT).show();
 
             }
-        }); //선택된 항목이 바뀌었을 때
+        }); //선택된 항목이 바뀌었을 때*/
+
+        //라디오 버튼 목록
+        dialog.setSingleChoiceItems(itemArr,0,new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                but_dialog.setText(itemArr[i]);
+                Toast.makeText(MainActivity.this, "저즈디즈 짱짱", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         dialog.setPositiveButton("보가",null);
         dialog.setNegativeButton("다른거", null);
 
         dialog.show();
-
-
     }
 }
